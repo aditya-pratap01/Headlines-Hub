@@ -1,6 +1,6 @@
 async function fetchNews() {
-  const apiKey = "92755bd55cd1f494f8936a2b6a443bc5"; //API key
-  const url = https://gnews.io/api/v4/top-headlines?lang=en&token=${apiKey};
+  const apiKey = "92755bd55cd1f494f8936a2b6a443bc5"; // Your GNews API key
+  const url = `https://gnews.io/api/v4/top-headlines?lang=en&token=${apiKey}`;
 
   const newsContainer = document.getElementById("newsContainer");
   newsContainer.innerHTML = "<p>Searching....</p>";
@@ -14,7 +14,7 @@ async function fetchNews() {
       return;
     }
 
-    newsContainer.innerHTML = ""; // Clears previous content
+    newsContainer.innerHTML = ""; // Clear previous content
 
     data.articles.forEach(article => {
       const newsItem = document.createElement("div");
@@ -30,6 +30,6 @@ async function fetchNews() {
     });
   } catch (error) {
     console.error("Error fetching news:", error);
-    newsContainer.innerHTML = <p style="color:red;">Failed to load news.</p>;
+    newsContainer.innerHTML = `<p style="color:red;">Failed to load news.</p>`;
   }
 }
